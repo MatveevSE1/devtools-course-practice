@@ -16,9 +16,6 @@ CLPApplication::CLPApplication() {}
 std::string CLPApplication::operator()(int argc, const char** argv) {
   std::ostringstream os;
 
-  if (argc == 1) {
-    return this->argument_error();
-  }
   if (std::string(argv[1]) == "--help" || std::string(argv[1]) == "-h") {
     return this->help();
   }
@@ -60,7 +57,8 @@ std::string CLPApplication::operator()(int argc, const char** argv) {
     std::cout << os.str() << std::endl;
     return "success";
   }
-  return "success";
+  
+  return this->argument_error();
 }
 
 std::string CLPApplication::help() {
