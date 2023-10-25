@@ -57,7 +57,7 @@ std::string CLPApplication::operator()(int argc, const char** argv) {
     std::cout << os.str() << std::endl;
     return "success";
   }
-  
+
   return this->argument_error();
 }
 
